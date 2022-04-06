@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Générateur de code barres</title>
+</head>
+<body>
+    <div class="wrapper active">
+        <header>
+            <h1>BarCodeGenerator</h1>
+            <h2>Générateur de code barres</h2>
+            <p>Insérer des charactères pour créer un code bar</p>
+        </header>
+        <div class="form">
+            <input type="text" placeholder='Entrez votre texte ou votre url'>
+            <button>Générer le code barre</button>
+        </div>
+        <div class="result">
+            <svg id="barcode" width="100%" height="100%"></svg>
+        </div>
+    </div>
+    <script src="js/JsBarcode.all.min.js"></script>
+
+    <script>
+        const wrapper = document.querySelector('.wrapper'),
+        input = wrapper.querySelector('.form input'),
+        generateBtn = wrapper.querySelector('.form button'),
+        svg = wrapper.querySelector('#barcode');
+
+        generateBtn.addEventListener('click', () => {
+        let codeValue = input.value;
+        if(!codeValue) return;
+        JsBarcode("#barcode", codeValue);
+    
+});
+       
+
+
+
+        
+    </script>
+</body>
+</html>
