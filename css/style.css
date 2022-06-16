@@ -18,13 +18,13 @@ body {
 .wrapper {
   background: #fff;
   max-width: 450px;
-  height: 260px;
+  height: 300px;
   border-radius: 7px;
   padding: 16px 25px;
   transition: height 0.2s ease-in-out;
 }
 .wrapper.active {
-  height: 530px;
+  height: 700px;
 }
 
 header h1 {

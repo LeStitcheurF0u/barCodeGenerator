@@ -8,7 +8,7 @@
     <title>Générateur de code barres</title>
 </head>
 <body>
-    <div class="wrapper active">
+    <div class="wrapper">
         <header>
             <h1>BarCodeGenerator</h1>
             <h2>Générateur de code barres</h2>
@@ -17,23 +17,28 @@
         <div class="form">
             <input type="text" placeholder='Entrez votre texte ou votre url'>
             <button>Générer le code barre</button>
+            <button id="save" onclick='save();' style='display:none;'>Enregistrer le code bar</button>
         </div>
         <div class="result">
             <svg id="barcode" width="100%" height="100%"></svg>
         </div>
+        
     </div>
-    <script src="js/JsBarcode.all.min.js"></script>
+    
 
     <script>
         const wrapper = document.querySelector('.wrapper'),
         input = wrapper.querySelector('.form input'),
         generateBtn = wrapper.querySelector('.form button'),
         svg = wrapper.querySelector('#barcode');
+        btn = wrapper.querySelector('#save');
 
         generateBtn.addEventListener('click', () => {
         let codeValue = input.value;
         if(!codeValue) return;
+        wrapper.classList.add('active');
         JsBarcode("#barcode", codeValue);
+        btn.style.display = 'block';
     
 });
        
@@ -42,5 +47,8 @@
 
         
     </script>
+<script src="js/JsBarcode.all.min.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script src='js/save.js'></script>
 </body>
 </html>
